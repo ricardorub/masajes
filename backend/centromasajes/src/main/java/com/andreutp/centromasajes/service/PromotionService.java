@@ -4,7 +4,6 @@ import com.andreutp.centromasajes.dao.IPromotionRepository;
 import com.andreutp.centromasajes.model.PromotionModel;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class PromotionService {
     // Crear promoción
     public PromotionModel createPromotion(PromotionModel promotion) {
         if (promotion.getStartDate() == null) {
-            promotion.setStartDate(LocalDate.now());
+            promotion.setStartDate(LocalDateTime.now());
         }
         if (promotion.getEndDate() == null) {
             promotion.setEndDate(promotion.getStartDate().plusDays(7)); // ejemplo: 1 semana de vigencia -- si es que nos olvidamos de poner los datos
